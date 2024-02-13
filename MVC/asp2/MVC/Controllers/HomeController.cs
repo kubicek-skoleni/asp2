@@ -15,7 +15,12 @@ namespace MVC.Controllers
 
         public IActionResult Index()
         {
-            return View();
+			List<string> names = [ "Pavel", "Jana", "Veronika" ];
+
+            ViewData["admin"] = "Lukáš";
+
+
+            return View(names);
         }
 
         public IActionResult Privacy()

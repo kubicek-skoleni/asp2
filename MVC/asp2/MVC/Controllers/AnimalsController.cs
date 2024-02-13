@@ -8,6 +8,9 @@ namespace MVC.Controllers
 		[Route("[action]/{count:int?}")]
 		public string List(int? count)
 		{
+			string[] names = { "Pavel", "Jana", "Veronika" };
+
+
 			return $"Seznam všech zvířat, omezeno na {count}.";
 		}
 	}
