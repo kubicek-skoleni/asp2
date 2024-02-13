@@ -21,6 +21,24 @@
 * https://learn.microsoft.com/en-us/aspnet/core/mvc/controllers/routing?view=aspnetcore-7.0
 * https://learn.microsoft.com/en-us/aspnet/core/fundamentals/routing?view=aspnetcore-7.0
 
+## Blazor
+### MS Docs
+https://learn.microsoft.com/en-us/aspnet/core/blazor/?view=aspnetcore-7.0
+
+### Blazor Univerzity
+https://blazor-university.com/
+
+### Blazor School
+https://blazorschool.com/
+https://github.com/Blazor-School
+
+### Komponenty
+* built-in Razor components - https://learn.microsoft.com/en-us/aspnet/core/blazor/components/built-in-components?view=aspnetcore-7.0
+* forms + inputs https://learn.microsoft.com/en-us/aspnet/core/blazor/forms-and-input-components?view=aspnetcore-7.0
+
+#### eShopOnBlazor
+https://github.com/dotnet-architecture/eShopOnBlazor
+
 
 ## Visual Studio Community
 https://visualstudio.microsoft.com/downloads/
