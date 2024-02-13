@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MVC", "MVC\MVC.csproj", "{D
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorApp", "BlazorApp\BlazorApp.csproj", "{A17A2C1A-90D4-4828-88E2-A3C7865696BA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InsuranceCorp.Blazor", "InsuranceCorp.Blazor\InsuranceCorp.Blazor.csproj", "{92C894FB-1941-417D-A2D8-C0C929D4AF36}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InsuranceCorp.Blazor", "InsuranceCorp.Blazor\InsuranceCorp.Blazor.csproj", "{92C894FB-1941-417D-A2D8-C0C929D4AF36}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InsuranceCorp.Model", "InsuranceCorp.Model\InsuranceCorp.Model.csproj", "{D8BDC009-4CB8-4E19-B830-4E6FF83D7452}"
 EndProject
