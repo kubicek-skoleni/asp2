@@ -6,4 +6,9 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\InsuranceCorp.Data\InsuranceCorp.Data.csproj" />
+    <ProjectReference Include="..\InsuranceCorp.Model\InsuranceCorp.Model.csproj" />
+  </ItemGroup>
+
 </Project>
