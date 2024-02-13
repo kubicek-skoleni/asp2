@@ -25,7 +25,7 @@ public partial class InsCorpDbContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
-        optionsBuilder.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=InsCorpDb2023-4;Trusted_Connection=True;MultipleActiveResultSets=true");
+        optionsBuilder.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=InsCorpDb2024-2;Trusted_Connection=True;MultipleActiveResultSets=true");
     }
 
 }
