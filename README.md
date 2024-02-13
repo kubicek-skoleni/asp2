@@ -17,6 +17,10 @@
 ## Dependency Injection
 * https://learn.microsoft.com/en-us/aspnet/core/fundamentals/dependency-injection?view=aspnetcore-7.0
 
+* ### Routing
+* https://learn.microsoft.com/en-us/aspnet/core/mvc/controllers/routing?view=aspnetcore-7.0
+* https://learn.microsoft.com/en-us/aspnet/core/fundamentals/routing?view=aspnetcore-7.0
+
 
 ## Visual Studio Community
 https://visualstudio.microsoft.com/downloads/
