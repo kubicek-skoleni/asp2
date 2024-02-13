@@ -1,5 +1,6 @@
 ﻿@page "/person/create"
 @inject InsCorpDbContext db
+@inject NavigationManager nav
 
 <h3>Přidej novou osobu</h3>
 
@@ -46,10 +47,13 @@
 </EditForm>
 
 @code {
-	Person Person = new();
+    Person Person = new();
 
-	void Save()
-	{
-		
-	}
+    void Save()
+    {
+        db.Persons.Add(Person);
+        db.SaveChanges();
+
+        nav.NavigateTo($"/person/detail/{Person.Id}");
+    }
 }
