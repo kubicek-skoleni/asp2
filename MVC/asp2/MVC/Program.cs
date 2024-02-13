@@ -20,6 +20,8 @@ app.UseHttpsRedirection();
 
 app.UseStaticFiles();
 
+app.MapGet("/hello", () => "Hello World!");
+
 app.UseRouting();
 
 app.UseAuthorization();

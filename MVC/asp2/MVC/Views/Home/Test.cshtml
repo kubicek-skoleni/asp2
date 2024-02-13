@@ -1,5 +1,5 @@
 ﻿@{
-
+	string[] names = { "Pavel", "Jana", "Veronika" };
 }
 
 <h1>Hello world!</h1>
@@ -7,3 +7,9 @@
 <p>
 	@DateTime.Now.ToString("dd. MM. yyyy")
 </p>
+
+@foreach(var name in names)
+{
+	var fullname = name + " XX";
+	<p>@fullname</p>
+}
