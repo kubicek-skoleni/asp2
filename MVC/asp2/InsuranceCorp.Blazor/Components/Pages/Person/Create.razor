@@ -3,7 +3,7 @@
 
 <h3>Přidej novou osobu</h3>
 
-<EditForm Model="person" OnValidSubmit="Save">
+<EditForm Model="Person" OnValidSubmit="Save">
     <DataAnnotationsValidator />
 
     <div class="form-group">
@@ -46,7 +46,7 @@
 </EditForm>
 
 @code {
-	Person person = new();
+	Person Person = new();
 
 	void Save()
 	{
