@@ -2,6 +2,7 @@
 using InsuranceCorp.Model;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace InsuranceCorp.WEBAPI.Controllers
 {
@@ -21,6 +22,31 @@ namespace InsuranceCorp.WEBAPI.Controllers
 		public ActionResult<List<Person>> List(int start, int take) 
 		{
 			return db.Persons.Skip(start).Take(take).ToList();
+		}
+
+		[HttpGet("{id:int}")]
+		public ActionResult<Person> Get(int id) 
+		{
+			var person = db.Persons
+					.Include(x => x.Address)
+					.Include(x => x.Contracts)
+					.FirstOrDefault(x =>  x.Id == id);
+
+			if (person == null)
+			{
+				return NotFound();
+			}
+
+			return person;
+		}
+
+		[HttpPost("create")]
+		[ProducesResponseType(StatusCodes.Status201Created)]
+		public ActionResult Create(Person person) 
+		{
+			db.Persons.Add(person);
+			db.SaveChanges();
+			return Created($"/api/person/{person.Id}", person);
 		}
 	}
 }
