@@ -1,4 +1,5 @@
 using InsuranceCorp.Blazor.Components;
+using InsuranceCorp.Blazor.Services;
 using InsuranceCorp.Data;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -8,6 +9,8 @@ builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
 
 builder.Services.AddDbContext<InsCorpDbContext>();
+
+builder.Services.AddSingleton<EmailService>();
 
 var app = builder.Build();
 

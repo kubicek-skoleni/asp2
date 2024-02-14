@@ -1,7 +1,9 @@
 ﻿@page "/person/detail/{id:int}"
+@using InsuranceCorp.Blazor.Services
 @using Microsoft.EntityFrameworkCore
 
 @inject InsCorpDbContext db
+@inject EmailService emailService 
 
 <h3>Detail osoby</h3>
 
@@ -51,6 +53,8 @@ else
 	{
 		<p>@contract</p>
 	}
+
+	<button class="btn btn-primary" @onclick="sendmail">Pošli email</button>
 }
 
 @code {
@@ -66,12 +70,16 @@ else
 
 	protected override void OnInitialized()
 	{
-
 		person = db.Persons
 				.Include(x => x.Address)
 				.Include(x => x.Contracts)
 				.FirstOrDefault(x => x.Id == id)
 				;
 
+	}
+
+	void sendmail()
+	{
+		emailService.Emails.Enqueue(person.Email);
 	}
 }
