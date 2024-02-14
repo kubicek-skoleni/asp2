@@ -2,30 +2,42 @@
 
 <h3>Hledej osoby podle emailu:</h3>
 
-<EditForm Model="searchterm" OnSubmit="SearchPerson">
-	<div class="row">
-		<div class="col-auto">
-			<label>Email:</label>
-		</div>
-		<div class="col-auto">
-			<InputText @bind-Value="searchterm" class="form-control"/>
-		</div>
-		<div class="col-auto">
-			<button class="btn btn-primary" type="submit">Hledej</button>
-		</div>
-	</div>
-</EditForm>
+<SearchBox Label="Email" OnSearch="SearchPerson" />
+
+@if(persons != null & persons.Count > 0)
+{
+	<table>
+	@foreach(var person in persons)
+	{
+		<tr>
+			@person
+		</tr>
+	}
+	</table>
+}
 
 @code {
-	string searchterm = "";
 
-	async Task SearchPerson()
+	List<Person> persons = new();
+
+	void SearchPerson(string searchterm)
 	{
 		using HttpClient client = new HttpClient();
 
 		var apiurl = "https://localhost:7033";
+		var url = $"{apiurl}/api/person/SerchByEmail/{searchterm}";
 
-		var result = await client.GetFromJsonAsync<List<Person>>($"{apiurl}/api/person/SerchByEmail/{searchterm}");
-		
+		//var result = await client.GetFromJsonAsync<List<Person>>($"{apiurl}/api/person/SerchByEmail/{searchterm}");
+
+		try
+		{
+			persons = client.GetFromJsonAsync<List<Person>>(url).Result;
+
+			StateHasChanged();
+		}
+		catch (Exception)
+		{
+			throw;
+		}
 	}
 }

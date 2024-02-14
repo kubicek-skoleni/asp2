@@ -1,0 +1,28 @@
+﻿<EditForm Model="searchterm" OnSubmit="Search">
+	<div class="row">
+		<div class="col-auto">
+			<label>@Label:</label>
+		</div>
+		<div class="col-auto">
+			<InputText @bind-Value="searchterm" class="form-control" />
+		</div>
+		<div class="col-auto">
+			<button class="btn btn-primary" type="submit">Hledej</button>
+		</div>
+	</div>
+</EditForm>
+
+@code {
+	private string searchterm = "";
+
+	[Parameter]
+	public string Label { get; set; }
+
+	[Parameter]
+	public Action<string> OnSearch { get; set; }
+
+	void Search()
+	{
+		OnSearch.Invoke(searchterm);
+	}
+}
