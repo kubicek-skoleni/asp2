@@ -1,5 +1,6 @@
 ﻿using InsuranceCorp.Data;
 using InsuranceCorp.Model;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -8,6 +9,7 @@ namespace InsuranceCorp.WEBAPI.Controllers
 {
 	[Route("api/[controller]")]
 	[ApiController]
+	[AllowAnonymous]
 	public class PersonController : ControllerBase
 	{
 		private readonly InsCorpDbContext db;
@@ -38,6 +40,14 @@ namespace InsuranceCorp.WEBAPI.Controllers
 			}
 
 			return person;
+		}
+
+		[HttpGet("email/{email}")]
+		public ActionResult<List<Person>> FindByEmail(string email)
+		{
+			return db.Persons.Where(x => !string.IsNullOrEmpty(x.Email)
+										&& x.Email.ToLower().Contains(email.ToLower()))
+				.ToList();
 		}
 
 		[HttpPost("create")]
