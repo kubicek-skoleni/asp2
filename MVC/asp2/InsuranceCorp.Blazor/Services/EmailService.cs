@@ -4,6 +4,6 @@ namespace InsuranceCorp.Blazor.Services
 {
 	public class EmailService
 	{
-		public ConcurrentQueue<string> Emails { get; set; }
+		public ConcurrentQueue<string> Emails { get; set; } = new();
 	}
 }

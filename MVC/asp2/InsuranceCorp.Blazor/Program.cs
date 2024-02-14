@@ -12,6 +12,8 @@ builder.Services.AddDbContext<InsCorpDbContext>();
 
 builder.Services.AddSingleton<EmailService>();
 
+builder.Services.AddHostedService<TimedHostedService>();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
