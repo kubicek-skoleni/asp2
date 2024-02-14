@@ -6,52 +6,58 @@
 <h3>Detail osoby</h3>
 
 <hr />
-
-<dl class="row">
-	<dt class="col-sm-2">
-		Jméno
-	</dt>
-	<dd class="col-sm-10">
-		@person.FirstName
-	</dd>
-	<dt class="col-sm-2">
-		Příjmení
-	</dt>
-	<dd class="col-sm-10">
-		@person.LastName
-	</dd>
-	<dt class="col-sm-2">
-		Datum narození
-	</dt>
-	<dd class="col-sm-10">
-		@person.DateOfBirth.ToShortDateString()
-	</dd>
-	<dt class="col-sm-2">
-		Email
-	</dt>
-	<dd class="col-sm-10">
-		@person.Email
-	</dd>
-	<dt class="col-sm-2">
-		RČ
-	</dt>
-	<dd class="col-sm-10">
-		@person.BirthNumber
-	</dd>
-	<dt class="col-sm-2">Adresa</dt>
-	<dd class="col-sm-10">@person.Address?.ToString()</dd>
-</dl>
-
-@foreach(var contract in person.Contracts)
+@if (person == null)
 {
-	<p>@contract</p>
+	<p>Nenalezena osoba s id: @id</p>
+}
+else
+{
+	<dl class="row">
+		<dt class="col-sm-2">
+			Jméno
+		</dt>
+		<dd class="col-sm-10">
+			@person.FirstName
+		</dd>
+		<dt class="col-sm-2">
+			Příjmení
+		</dt>
+		<dd class="col-sm-10">
+			@person.LastName
+		</dd>
+		<dt class="col-sm-2">
+			Datum narození
+		</dt>
+		<dd class="col-sm-10">
+			@person.DateOfBirth.ToShortDateString()
+		</dd>
+		<dt class="col-sm-2">
+			Email
+		</dt>
+		<dd class="col-sm-10">
+			@person.Email
+		</dd>
+		<dt class="col-sm-2">
+			RČ
+		</dt>
+		<dd class="col-sm-10">
+			@person.BirthNumber
+		</dd>
+		<dt class="col-sm-2">Adresa</dt>
+		<dd class="col-sm-10">@person.Address?.ToString()</dd>
+	</dl>
+
+	@foreach (var contract in person.Contracts)
+	{
+		<p>@contract</p>
+	}
 }
 
 @code {
 	Person? person = new();
 
 	[Parameter]
-	public int id { get; set; } 
+	public int id { get; set; }
 
 	[SupplyParameterFromQuery]
 	[Parameter]
@@ -60,7 +66,7 @@
 
 	protected override void OnInitialized()
 	{
-		
+
 		person = db.Persons
 				.Include(x => x.Address)
 				.Include(x => x.Contracts)
