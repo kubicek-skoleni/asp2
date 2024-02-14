@@ -42,8 +42,8 @@ namespace InsuranceCorp.WEBAPI.Controllers
 			return person;
 		}
 
-		[HttpGet("email/{email}")]
-		public ActionResult<List<Person>> FindByEmail(string email)
+		[HttpGet("SerchByEmail/{email}")]
+		public ActionResult<List<Person>> SearchByEmail(string email)
 		{
 			return db.Persons.Where(x => !string.IsNullOrEmpty(x.Email)
 										&& x.Email.ToLower().Contains(email.ToLower()))
