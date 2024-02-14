@@ -1,9 +1,16 @@
 ﻿@page "/person/list"
+@using Microsoft.EntityFrameworkCore
 @inject InsCorpDbContext db
 @inject NavigationManager nav
 
 <h3>Seznam osob:</h3>
 
+@if(loading)
+{
+	<p>načítám..</p>
+}
+else
+{
 <table class="table">
 	<tr>
 		<td>
@@ -56,9 +63,10 @@
 		<button class="btn btn-primary @btnExtraClass" @onclick="next">Další</button>
 	</div>
 </div>
-
+}
 
 @code {
+	bool loading = false;
 	List<Person> people = new();
 	int currentPage = 0;
 	string btnExtraClass = "btn-sm";
@@ -69,17 +77,25 @@
 		{
 			return currentPage == 0;
 		}
-		
+
 	}
 
-	protected override void OnInitialized()
+	protected async override Task OnInitializedAsync()
 	{
-		LoadPeople();
+		await LoadPeople();
 	}
 
-	void LoadPeople()
+	async Task LoadPeople()
 	{
-		people = db.Persons.Skip(currentPage * 20).Take(20).ToList();
+		loading = true;
+		StateHasChanged();
+
+		await Task.Delay(2000);
+		people = await db.Persons.Skip(currentPage * 20).Take(20).ToListAsync();
+
+		loading = false;
+		StateHasChanged();
+
 	}
 
 	void EditPerson(int id)
