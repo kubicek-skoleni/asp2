@@ -1,0 +1,26 @@
+﻿@page "/person/search"
+
+<h3>Hledej osoby podle emailu:</h3>
+
+<EditForm Model="searchterm" OnSubmit="SearchPerson">
+	<div class="row">
+		<div class="col-auto">
+			<label>Email:</label>
+		</div>
+		<div class="col-auto">
+			<InputText @bind-Value="searchterm" class="form-control"/>
+		</div>
+		<div class="col-auto">
+			<button class="btn btn-primary" type="submit">Hledej</button>
+		</div>
+	</div>
+</EditForm>
+
+@code {
+	string searchterm = "";
+
+	void SearchPerson()
+	{
+		
+	}
+}
