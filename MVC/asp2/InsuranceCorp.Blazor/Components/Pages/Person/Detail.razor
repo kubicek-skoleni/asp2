@@ -1,4 +1,5 @@
 ﻿@page "/person/detail/{id:int}"
+@using Microsoft.EntityFrameworkCore
 
 @inject InsCorpDbContext db
 
@@ -37,10 +38,17 @@
 	<dd class="col-sm-10">
 		@person.BirthNumber
 	</dd>
+	<dt class="col-sm-2">Adresa</dt>
+	<dd class="col-sm-10">@person.Address?.ToString()</dd>
 </dl>
 
+@foreach(var contract in person.Contracts)
+{
+	<p>@contract</p>
+}
+
 @code {
-	Person person = new();
+	Person? person = new();
 
 	[Parameter]
 	public int id { get; set; } 
@@ -52,6 +60,12 @@
 
 	protected override void OnInitialized()
 	{
-		person = db.Persons.Find(id);
+		
+		person = db.Persons
+				.Include(x => x.Address)
+				.Include(x => x.Contracts)
+				.FirstOrDefault(x => x.Id == id)
+				;
+
 	}
 }
