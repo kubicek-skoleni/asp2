@@ -58,6 +58,8 @@ https://github.com/dotnet-architecture/eShopOnBlazor
 ### Http Context 
 * https://learn.microsoft.com/en-us/aspnet/core/fundamentals/use-http-context?view=aspnetcore-7.0
 
+### Background tasks
+* https://learn.microsoft.com/en-us/aspnet/core/fundamentals/host/hosted-services?view=aspnetcore-8.0&tabs=visual-studio
 
 ## Visual Studio Community
 https://visualstudio.microsoft.com/downloads/
