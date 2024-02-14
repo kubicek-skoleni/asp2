@@ -19,8 +19,13 @@
 @code {
 	string searchterm = "";
 
-	void SearchPerson()
+	async Task SearchPerson()
 	{
+		using HttpClient client = new HttpClient();
+
+		var apiurl = "https://localhost:7033";
+
+		var result = await client.GetFromJsonAsync<List<Person>>($"{apiurl}/api/person/SerchByEmail/{searchterm}");
 		
 	}
 }
