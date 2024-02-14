@@ -50,10 +50,10 @@
 
 <div class="row">
 	<div class="col-2">
-		<button class="btn btn-primary" @onclick="prev">Předchozí</button>
+		<button disabled="@prevDisabled" class="btn btn-primary" @onclick="prev">Předchozí</button>
 	</div>
 	<div class="col-2">
-		<button class="btn btn-primary" @onclick="next">Další</button>
+		<button class="btn btn-primary @btnExtraClass" @onclick="next">Další</button>
 	</div>
 </div>
 
@@ -61,6 +61,16 @@
 @code {
 	List<Person> people = new();
 	int currentPage = 0;
+	string btnExtraClass = "btn-sm";
+
+	bool prevDisabled
+	{
+		get
+		{
+			return currentPage == 0;
+		}
+		
+	}
 
 	protected override void OnInitialized()
 	{
