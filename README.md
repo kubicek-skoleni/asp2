@@ -39,6 +39,25 @@ https://github.com/Blazor-School
 #### eShopOnBlazor
 https://github.com/dotnet-architecture/eShopOnBlazor
 
+----
+
+### Identity
+* https://learn.microsoft.com/en-us/aspnet/core/security/authentication/identity?view=aspnetcore-7.0&tabs=visual-studio
+
+### Middleware
+* https://learn.microsoft.com/en-us/aspnet/core/fundamentals/middleware/?view=aspnetcore-7.0
+* https://learn.microsoft.com/en-us/aspnet/core/fundamentals/middleware/write?view=aspnetcore-7.0
+
+### Minimal APIs
+* https://learn.microsoft.com/en-us/aspnet/core/fundamentals/minimal-apis?view=aspnetcore-7.0
+
+### Errors / Logging
+* Error handling - https://learn.microsoft.com/en-us/aspnet/core/fundamentals/error-handling?view=aspnetcore-7.0
+* Logging - https://learn.microsoft.com/en-us/aspnet/core/fundamentals/logging/?view=aspnetcore-7.0
+
+### Http Context 
+* https://learn.microsoft.com/en-us/aspnet/core/fundamentals/use-http-context?view=aspnetcore-7.0
+
 
 ## Visual Studio Community
 https://visualstudio.microsoft.com/downloads/
